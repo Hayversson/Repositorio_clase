@@ -16,7 +16,7 @@ print("\n1. CREACIÓN DE UNA CLASE Y OBJETOS")
 print("-" * 40)
 
 class Persona:
-    def __init__(self, nombre, edad):
+    def __init__(self, nombre: str, edad: int):
         self.nombre = nombre
         self.edad = edad
 
