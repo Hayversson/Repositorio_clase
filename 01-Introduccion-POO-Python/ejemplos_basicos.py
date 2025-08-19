@@ -37,14 +37,14 @@ print("\n2. ENCAPSULACIÓN")
 print("-" * 40)
 
 class CuentaBancaria:
-    def __init__(self, titular, saldo):
+    def __init__(self, titular: str, saldo: float):
         self.titular = titular
         self.__saldo = saldo  # Atributo privado
 
-    def depositar(self, cantidad):
+    def depositar(self, cantidad: int):
         self.__saldo += cantidad
 
-    def retirar(self, cantidad):
+    def retirar(self, cantidad: int)-> str:
         if cantidad <= self.__saldo:
             self.__saldo -= cantidad
             return f"Retiro exitoso de ${cantidad}"
@@ -70,10 +70,10 @@ print("\n3. HERENCIA")
 print("-" * 40)
 
 class Animal:
-    def __init__(self, nombre):
+    def __init__(self, nombre:str):
         self.nombre = nombre
 
-    def hacer_sonido(self):
+    def hacer_sonido(self) -> str:
         return "Hace un sonido."
 
 class Perro(Animal):
@@ -110,11 +110,11 @@ print("\n5. SISTEMA COMPLETO DE VEHÍCULOS")
 print("-" * 40)
 
 class Vehiculo:
-    def __init__(self, marca, modelo):
+    def __init__(self, marca:str, modelo:str):
         self.marca = marca
         self.modelo = modelo
 
-    def descripcion(self):
+    def descripcion(self) -> str:
         return f"{self.marca} {self.modelo}"
 
 class Carro(Vehiculo):

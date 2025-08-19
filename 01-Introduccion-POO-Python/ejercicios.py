@@ -16,24 +16,24 @@ print("\nEJERCICIO 1: CLASE ESTUDIANTE")
 print("-" * 40)
 
 class Estudiante:
-    def __init__(self, nombre, edad, carrera):
+    def __init__(self, nombre: str, edad: int, carrera: str):
         self.nombre = nombre
         self.edad = edad
         self.carrera = carrera
         self.promedio = 0.0
         self.materias_inscritas = []
     
-    def presentarse(self):
+    def presentarse(self) -> str:
         return f"Hola, soy {self.nombre}, tengo {self.edad} años y estudio {self.carrera}."
     
-    def inscribir_materia(self, materia):
+    def inscribir_materia(self, materia:str) -> str:
         if materia not in self.materias_inscritas:
             self.materias_inscritas.append(materia)
             return f"{self.nombre} se ha inscrito en {materia}"
         else:
             return f"{self.nombre} ya está inscrito en {materia}"
     
-    def agregar_nota(self, materia, nota):
+    def agregar_nota(self, materia: str, nota: float):
         if materia in self.materias_inscritas and 0.0 <= nota <= 5.0:
             if self.promedio == 0.0:
                 self.promedio = nota
@@ -61,23 +61,23 @@ print("\nEJERCICIO 2: CLASE RECTÁNGULO")
 print("-" * 40)
 
 class Rectangulo:
-    def __init__(self, base, altura):
+    def __init__(self, base: float, altura: float):
         if base > 0 and altura > 0:
             self.base = base
             self.altura = altura
         else:
             raise ValueError("La base y altura deben ser valores positivos")
     
-    def calcular_area(self):
+    def calcular_area(self) -> float:
         return self.base * self.altura
     
-    def calcular_perimetro(self):
+    def calcular_perimetro(self)-> float:
         return 2 * (self.base + self.altura)
     
-    def es_cuadrado(self):
+    def es_cuadrado(self) -> bool:
         return self.base == self.altura
     
-    def mostrar_info(self):
+    def mostrar_info(self) -> str:
         return f"""
 INFORMACIÓN DEL RECTÁNGULO
    Base: {self.base} unidades
@@ -108,13 +108,13 @@ print("\nEJERCICIO 3: CLASE CUENTA BANCARIA MEJORADA")
 print("-" * 40)
 
 class CuentaBancaria:
-    def __init__(self, titular, saldo_inicial, tipo_cuenta="ahorros"):
+    def __init__(self, titular:str, saldo_inicial:float, tipo_cuenta:str="ahorros"):
         self.titular = titular
         self.__saldo = saldo_inicial
         self.tipo_cuenta = tipo_cuenta
         self.activa = True
     
-    def depositar(self, cantidad):
+    def depositar(self, cantidad:float) -> str:
         if not self.activa:
             return "La cuenta está inactiva"
         
@@ -124,7 +124,7 @@ class CuentaBancaria:
         else:
             return "La cantidad debe ser mayor a 0"
     
-    def retirar(self, cantidad):
+    def retirar(self, cantidad: float) -> str:
         if not self.activa:
             return "La cuenta está inactiva"
         
@@ -134,13 +134,13 @@ class CuentaBancaria:
         else:
             return "Fondos insuficientes o cantidad inválida"
     
-    def consultar_saldo(self):
+    def consultar_saldo(self) -> str:
         if self.activa:
             return f"Saldo actual: ${self.__saldo:,.2f}"
         else:
             return "La cuenta está inactiva"
     
-    def obtener_resumen(self):
+    def obtener_resumen(self) -> str:
         return f"""
 RESUMEN DE CUENTA BANCARIA
    Titular: {self.titular}
