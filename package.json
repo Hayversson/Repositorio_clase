@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "frontend-angular-clean-architecture": "file:04-Frontend-angular"
+  }
+}
